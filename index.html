@@ -35,14 +35,54 @@
 				</section>
 				<section><!--2-->
 					<section>
-						<h3>Как скопировать репозиторий из GitHub в локальную папку?</h2>
-						<p>Для начала нужно скопировать url репозитория</p>
+						<h3>Экспорт репозитория из GitHub в папку</h2>
 					</section>
 					<section style="text-align: left;">
-						<h4>Далее заходим в GIT BASH</h4>
-						<p>пишем <code><span class="hljs-keyword">git clone</span></code> и добавляем ссылку. После ссылки без пробела ставим <code><span class="hljs-keyword">.git</span></code></p>
-						<p>Получилось так <pre><code>$ git clone https://xrymko.github.io/presentations.git</code></pre></p>
+
+						<h4>Копируем url репозитория</h4>
+						<p>Далее заходим в GIT BASH и пишем <code><span class="hljs-keyword">git clone</span></code> и добавляем ссылку. После ссылки без пробела ставим <code><span class="hljs-keyword">.git</span></code></p>
+						<p>Итого<pre><code class="bash">$ git clone https://xrymko.github.io/presentations.git</code></pre></p>
 					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Экспорт с папки на GitHub</h3>
+					</section>
+					<section>
+						<h4>Переходим в папку проекта</h4>
+						<table>
+							<tr><th>1 способ</th><th>2 способ</th></tr>
+							<tr>
+								<td style="width: 50%;">Через проводник заходим в папку проекта, ПКМ -> открыть GIT BASH</td>
+								<td style="width: 50%;">
+									<p>Команда cd в терминале<pre><code class="bash">cd путь/к/папке</code></pre></p>
+									<p>подняться на 1 директорию выше<pre><code class="bash">cd ..</code></pre></p>
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+							<h4>Инициализием репозиторий</h4>
+							<pre><code class="bash">$ git init</code></pre>
+							<h4>Подключаем удаленный репозиторий</h4>
+							<pre><code class="bash">git remote add origin https://github.com/ваш-логин/ваш-репозиторий.git</code></pre>
+							<h4>Добавляем все файлы в коммит</h4>
+							<pre><code class="bash">git add .</code></pre>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h3>Возможные ошибки</h3>
+						</section>
+						<section>
+							<span class="hljs-keyword">remote origin already exists</span>
+							<h4>это значит, что удаленный репозиторий уже подключен</h4>
+							<p>Проверяем привязанные репозитории</p>
+							<pre><code class="bash">git remote -v</code></pre>
+							<p>Если подключение есть + оно не нужное, удаляем подключение:</p>
+							<pre><code class="bash">git remote remove origin</code></pre>
+					</section>
+					<section></section>
 				</section>
 			</div>
 		</div>
@@ -57,6 +97,21 @@
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
+			const colors = {
+			blue0: 'rgb(61, 89, 161)',
+			blue: 'rgb(122, 162, 247)',
+			cyan: 'rgb(125, 207, 255)',
+			magenta: 'rgb(187, 154, 247)',
+			orange: 'rgb(255, 158, 100)',
+			yellow: 'rgb(224, 175, 104)',
+			green: 'rgb(158, 206, 106)',
+			teal: 'rgb(26, 188, 156)',
+			red: 'rgb(255, 117, 127)',
+			red1: 'rgb(219, 75, 75)',
+			fg: 'rgb(192, 202, 245)',
+			bg: 'rgb(26, 27, 38)',
+			transparent: "#00000000"
+			};
 			Reveal.initialize({
 				hash: true,
 
@@ -64,8 +119,31 @@
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealChalkboard], 
 				slideNumber: true,
 				
-				
+				chalkboard: {
+				boardmarkerWidth: 5,
+				boardmarkers: [
+					{ color: colors.bg, cursor: 'url(' + path + 'img/boardmarker-black.png), auto' },
+					{ color: colors.fg, cursor: 'url(' + path + 'img/boardmarker-black.png), auto' },
+					{ color: colors.blue, cursor: 'url(' + path + 'img/boardmarker-black.png), auto' },
+					{ color: colors.red, cursor: 'url(' + path + 'img/boardmarker-black.png), auto' },
+					{ color: colors.green, cursor: 'url(' + path + 'img/boardmarker-black.png), auto' },
+					{ color: colors.yellow, cursor: 'url(' + path + 'img/boardmarker-black.png), auto' },
+					{ color: colors.teal, cursor: 'url(' + path + 'img/boardmarker-black.png), auto' },
+					{ color: colors.orange, cursor: 'url(' + path + 'img/boardmarker-black.png), auto' },
+				],
+				chalks: [
+					{ color: colors.bg, cursor: 'url(' + path + 'img/chalk-white.png), auto' },
+					{ color: colors.fg, cursor: 'url(' + path + 'img/chalk-white.png), auto' },
+					{ color: colors.blue, cursor: 'url(' + path + 'img/chalk-white.png), auto' },
+					{ color: colors.red, cursor: 'url(' + path + 'img/chalk-white.png), auto' },
+					{ color: colors.green, cursor: 'url(' + path + 'img/chalk-white.png), auto' },
+					{ color: colors.yellow, cursor: 'url(' + path + 'img/chalk-white.png), auto' },
+					{ color: colors.teal, cursor: 'url(' + path + 'img/chalk-white.png), auto' },
+					{ color: colors.orange, cursor: 'url(' + path + 'img/chalk-white.png), auto' },
+				]
+				},
 			});
+			
 		</script>
 	</body>
 </html>
