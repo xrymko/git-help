@@ -12,12 +12,38 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	<style>
+		.reveal .slide-number{
+			top: 0;
+			bottom: auto;
+			background: none;
+			color: #FF79C6;
+			font-size: 50px;
+		}
+	</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section><!--1-->
+					<section>
+						<h1>Git помощник</h1>
+					</section>
+					<section>
+						<img data-type="qrcode" class="r-stretch" alt="https://xrymko.github.io/presentations/">
+					</section>
+				</section>
+				<section><!--2-->
+					<section>
+						<h3>Как скопировать репозиторий из GitHub в локальную папку?</h2>
+						<p>Для начала нужно скопировать url репозитория</p>
+					</section>
+					<section style="text-align: left;">
+						<h4>Далее заходим в GIT BASH</h4>
+						<p>пишем <code><span class="hljs-keyword">git clone</span></code> и добавляем ссылку. После ссылки без пробела ставим <code><span class="hljs-keyword">.git</span></code></p>
+						<p>Получилось так <pre><code>$ git clone https://xrymko.github.io/presentations.git</code></pre></p>
+					</section>
+				</section>
 			</div>
 		</div>
 
@@ -25,6 +51,8 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/qrcode/qrcode.js"></script>
+		<script src="plugin/chalkboard/plugin.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -33,7 +61,10 @@
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealChalkboard], 
+				slideNumber: true,
+				
+				
 			});
 		</script>
 	</body>
