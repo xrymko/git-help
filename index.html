@@ -30,23 +30,12 @@
 						<h1>Git помощник</h1>
 					</section>
 					<section>
-						<img data-type="qrcode" class="r-stretch" alt="https://xrymko.github.io/presentations/">
+						<img data-type="qrcode" class="r-stretch" alt="https://xrymko.github.io/git-help/">
 					</section>
 				</section>
 				<section><!--2-->
 					<section>
-						<h3>Экспорт репозитория из GitHub в папку</h2>
-					</section>
-					<section style="text-align: left;">
-
-						<h4>Копируем url репозитория</h4>
-						<p>Далее заходим в GIT BASH и пишем <code><span class="hljs-keyword">git clone</span></code> и добавляем ссылку. После ссылки без пробела ставим <code><span class="hljs-keyword">.git</span></code></p>
-						<p>Итого<pre><code class="bash">$ git clone https://xrymko.github.io/presentations.git</code></pre></p>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h3>Экспорт с папки на GitHub</h3>
+						<h3>Импорт репозитория из GitHub в локальную папку</h2>
 					</section>
 					<section>
 						<h4>Переходим в папку проекта</h4>
@@ -61,28 +50,69 @@
 							</tr>
 						</table>
 					</section>
+					<section style="text-align: left;">
+						<h4>Копируем url репозитория</h4>
+						<p>Далее заходим в GIT BASH и пишем <code><span class="hljs-keyword">git clone</span></code> и добавляем ссылку. После ссылки без пробела ставим <code><span class="hljs-keyword">.git</span></code></p>
+						<p>Итого<pre><code class="bash">$ git clone https://xrymko.github.io/presentations.git</code></pre></p>
+						<p>Проект будет находится в папке, которую вы выбрали</p>
+					</section>
+				</section>
+				<section><!--3-->
 					<section>
+						<h3>Экспорт с локальной папки в репозиторий GitHub</h3>
+					</section>
+					<section>
+						<h4>Переходим в папку проекта</h4>
+						<table>
+							<tr><th>1 способ</th><th>2 способ</th></tr>
+							<tr>
+								<td style="width: 50%;">Через проводник заходим в папку проекта, ПКМ -> открыть GIT BASH</td>
+								<td style="width: 50%;">
+									<p>Команда cd в терминале<pre><code class="bash">cd путь/к/папке</code></pre></p>
+									<p>подняться на 1 директорию выше<pre><code class="bash">cd ..</code></pre></p>
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section class="fragments" data-transition="fade-out">
 							<h4>Инициализием репозиторий</h4>
 							<pre><code class="bash">$ git init</code></pre>
-							<h4>Подключаем удаленный репозиторий</h4>
-							<pre><code class="bash">git remote add origin https://github.com/ваш-логин/ваш-репозиторий.git</code></pre>
-							<h4>Добавляем все файлы в коммит</h4>
-							<pre><code class="bash">git add .</code></pre>
+							<h4 class="fragment" data-fragment-index="1">Подключаем удаленный репозиторий</h4>
+							<pre class="fragment" data-fragment-index="1"><code class="bash">git remote add origin https://github.com/ваш-логин/ваш-репозиторий.git</code></pre>
+							<h4 class="fragment" data-fragment-index="2">Добавляем все файлы в коммит</h4>
+							<pre class="fragment" data-fragment-index="2"><code class="bash">git add .</code></pre>
 						</section>
+						<section data-transition="fade-in">
+							<h4>Добавляем коммит</h4>
+							<pre><code class="bash">git commit -m "Первый коммит"</code></pre>
+							<p style="text-align: left;">Предавайте большое значение названиям, чтобы вам было проще ориентироваться в изменениях проекта</p>
+							<p style="text-align: left;">Перед тем как залить проект на гид, нужно проверить на какой ветке вы находитесь. Её название находится справа <code class="bash">(main)</code>. Так же узнать ветку можно с помощью команды (возле неё будет знак *):</p>
+							<pre><code class="bash">git branch</code></pre>
+						</section>
+						<section>
+							<p style="text-align: left;">Если требуется изменить ветку (например локальная ветка не соответсвует удалённой или нужна новая ветка)</p>
+							<pre><code class="bash">git branch -m master main</code></pre>
+							<p>master - название текущей ветки, main - новое название </p>
+						</section>
+						<section>
+							<h4>Осталось загрузить проект</h4>
+							<pre><code class="bash">git push origin master</code></pre>
+							<p>Вместо <code>master</code> пишем свою ветку</p>
+						</section>
+				</section>
+				<section><!--4-->
+					<section>
+						<h3>Возможные ошибки</h3>
 					</section>
 					<section>
-						<section>
-							<h3>Возможные ошибки</h3>
-						</section>
-						<section>
-							<span class="hljs-keyword">remote origin already exists</span>
-							<h4>это значит, что удаленный репозиторий уже подключен</h4>
-							<p>Проверяем привязанные репозитории</p>
-							<pre><code class="bash">git remote -v</code></pre>
-							<p>Если подключение есть + оно не нужное, удаляем подключение:</p>
-							<pre><code class="bash">git remote remove origin</code></pre>
+						<span class="hljs-keyword">remote origin already exists</span>
+						<h4>это значит, что удаленный репозиторий уже подключен</h4>
+						<p>Проверяем привязанные репозитории</p>
+						<pre><code class="bash">git remote -v</code></pre>
+						<p>Если подключение есть + оно не нужное, удаляем подключение:</p>
+						<pre><code class="bash">git remote remove origin</code></pre>
 					</section>
-					<section></section>
+				<section></section>
 				</section>
 			</div>
 		</div>
