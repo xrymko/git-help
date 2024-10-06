@@ -28,6 +28,11 @@
 				<section><!--1-->
 					<section>
 						<h1>Git помощник</h1>
+						<a href="#/1" >Импорт</a>
+						<span>|</span>
+						<a href="#/2">Экспорт</a>
+						<span>|</span>
+						<a href="#/3">Ошибки</a>
 					</section>
 					<section>
 						<img data-type="qrcode" class="r-stretch" alt="https://xrymko.github.io/git-help/">
@@ -84,7 +89,7 @@
 						</section>
 						<section data-transition="fade-in">
 							<h4>Добавляем коммит</h4>
-							<pre><code class="bash">git commit -m "Первый коммит"</code></pre>
+							<pre><code class="bash">git commit -m "имя-коммита"</code></pre>
 							<p style="text-align: left;">Предавайте большое значение названиям, чтобы вам было проще ориентироваться в изменениях проекта</p>
 							<p style="text-align: left;">Перед тем как залить проект на гид, нужно проверить на какой ветке вы находитесь. Её название находится справа <code class="bash">(main)</code>. Так же узнать ветку можно с помощью команды (возле неё будет знак *):</p>
 							<pre><code class="bash">git branch</code></pre>
@@ -109,10 +114,22 @@
 						<h4>это значит, что удаленный репозиторий уже подключен</h4>
 						<p>Проверяем привязанные репозитории</p>
 						<pre><code class="bash">git remote -v</code></pre>
-						<p>Если подключение есть + оно не нужное, удаляем подключение:</p>
+						<p>Если подключение есть + оно не нужное, можно удалить подключение:</p>
 						<pre><code class="bash">git remote remove origin</code></pre>
 					</section>
-				<section></section>
+					<section>
+						<h4>Не создаётся коммит и выдаёт сообщение</h4>
+						<p><span class="hljs-keyword">On branch master, nothing to commit, working tree clean</span></p>
+						<p>Нужно добавить все файлы в коммит</p>
+						<pre><code class="bash">git add .</code></pre>
+						<p>После добавляем сам коммит</p>
+						<pre><code class="bash">git commit -m "имя-коммита"</code></pre>
+					</section>
+				</section>
+				<section>
+					<h2><span class="hljs-keyword">Ну вот типа и всё</span></h2>
+					<h3><span class="hljs-keyword">Пака</span></h2>
+					<a href="#/0">назад</a>
 				</section>
 			</div>
 		</div>
